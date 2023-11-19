@@ -54,6 +54,10 @@
       animation: translateY 1s infinite ease-in-out alternate;
     }
 
+    .square.axesZ {
+      animation: translateZ 1s infinite ease-in-out alternate;
+    }
+
 
     @keyframes translateX {
       0% {
@@ -75,6 +79,16 @@
       }
     }
 
+
+    @keyframes translateZ {
+      from {
+        transform: translateZ(-50px);
+      }
+
+      to {
+        transform: translateZ(50px);
+      }
+    }
   </style>
 </head>
 

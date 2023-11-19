@@ -15,14 +15,198 @@
     html {
       height: 100%;
     }
+
+    .stage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 50vh;
+      perspective: 400px;
+    }
+
+    .stage>.box {
+      width: 100px;
+      height: 150px;
+      background: blue;
+      color: #fff;
+      font-size: 2rem;
+      text-align: center;
+      /* transform: rotateY(-50deg); */
+      transform: perspective(400px) rotateY(50deg);
+      margin: 20px;
+      cursor: pointer;
+      transition: 1s;
+
+    }
+
+    .box.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .box_container {
+      width: 400px;
+      transform-style: preserve-3d;
+      background: #c7c7c7;
+    }
+
+    .new_box {
+      width: 150px;
+      height: 150px;
+      background: #0cb3ee;
+      transition: 1s;
+      cursor: pointer;
+    }
+
+    .new_box.active {
+      transform: rotate(45deg) translateZ(200px);
+    }
+
+    .container {
+      margin: 0 auto;
+      width: 50vw;
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+    }
+
+    .door_wrap {
+      width: 230px;
+      height: 300px;
+      position: relative;
+      box-sizing: border-box;
+      perspective: 800px;
+      border: 1px solid #000;
+    }
+
+    .door {
+      background: url(./img/door.png) center no-repeat;
+      background-size: 350px 350px;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      cursor: pointer;
+      transition: 1s;
+      transform: perspective(800px) rotateY(0);
+      transform-origin: left top;
+      z-index: 99;
+    }
+
+    .door_inner {
+      position: absolute;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .donguri {
+      transform: translateX(500px);
+      opacity: 0;
+      transition: 0.8s;
+    }
+
+    .donguri.open_door_inner {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .door.open_door {
+      transform: rotateY(-120deg);
+    }
+
+    .card_wrap {
+      width: 230px;
+      height: 300px;
+      position: relative;
+      margin-left: 200px;
+      transform-style: preserve-3d;
+      perspective: 600px;
+      box-sizing: border-box;
+      transition: 1s;
+
+    }
+
+    .card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: #fff;
+      font-weight: bold;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      backface-visibility: hidden;
+    }
+
+    .card_wrap:hover {
+      transform: rotateX(180deg) rotateZ(-180deg);
+    }
+
+    .card_front {
+      background-image: linear-gradient(to right bottom, #ffda2c, #fab500, #f38e00, #e76600, #d83800);
+    }
+
+    .card_back {
+      background-image: linear-gradient(to left top, #2cffff, #00ddff, #00b9ff, #0092f5, #0068d8);
+      transform: rotateX(180deg) rotateZ(-180deg);
+      z-index: -1;
+    }
   </style>
 </head>
 
 <body>
   <div class="stage">
     <div class="box">BOX</div>
+    <div class="box">BOX</div>
+    <div class="box">BOX</div>
+    <div class="box_container">
+      <p>컨테이너 영역</p>
+      <div class="new_box"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="door_wrap">
+      <div class="door"></div>
+      <div class="door_inner">
+        <img class="donguri" src="./img/donguri.png" alt="donguri">
+      </div>
+    </div>
+    <div class="card_wrap">
+      <div class="card card_front">Front</div>
+      <div class="card card_back">Back</div>
+    </div>
   </div>
   <script>
+    const box = document.querySelectorAll(".box");
+    const new_box = document.querySelector(".new_box");
+    const door = document.querySelector(".door");
+    const door_inner = document.querySelector(".donguri");
+
+    box.forEach(el => {
+      el.addEventListener("click", (e) => {
+        // target VS currentTarget
+        // target : 클릭한 요소 기준
+        // currentTarget : 이벤트가 걸려있는 요소
+        e.target.classList.toggle("flipped");
+      })
+    })
+
+    new_box.addEventListener("click", (e) => {
+      e.target.classList.toggle("active");
+    })
+
+    door.addEventListener("click", (e) => {
+      e.target.classList.toggle("open_door");
+      door_inner.classList.toggle("open_door_inner");
+    })
 
   </script>
 </body>
