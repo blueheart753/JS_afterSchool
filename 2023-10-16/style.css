@@ -176,6 +176,6 @@ body::before {
   font-size: 20px;
 }
 
-.back_contents:hover {
+.card_back:hover .back_contents {
   transform: translateY(0);
 }
