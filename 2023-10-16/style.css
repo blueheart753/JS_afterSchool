@@ -167,10 +167,15 @@ body::before {
   color: #fff;
   background: #333;
   transform: translateY(100px);
+  transition: 0.3s;
   padding: 15px;
   overflow: hidden;
 }
 
 .card_title {
   font-size: 20px;
+}
+
+.back_contents:hover {
+  transform: translateY(0);
 }
