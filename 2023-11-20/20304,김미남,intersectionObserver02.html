@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intersection Observer02</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      word-break: keep-all;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #1f242d;
+      text-align: center;
+      padding: 50px 100px;
+      overflow: hidden;
+    }
+
+    .animate {
+      opacity: 0;
+      transition: 1s;
+    }
+
+    .show.animate {
+      opacity: 1;
+    }
+
+    .section-01 {
+      background: #7071E8;
+    }
+
+    h1,
+    p {
+      text-align: center;
+      word-wrap: break-word;
+    }
+
+    h1 {
+      padding: 30px;
+      font-size: 50px;
+    }
+
+    p {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .section-01>.container>h1 {
+      color: #f5f5f5;
+    }
+
+    .section-01>.container>p {
+      color: #FFC7C7;
+    }
+
+    .section-02 {
+      background: #F6FDC3;
+    }
+
+    .section-02>.container>h1 {
+      color: #FF8080;
+    }
+
+    .section-02>.container>p {
+      color: #A6F6FF;
+    }
+
+    .section-03 {
+      background: #016A70;
+    }
+
+    .section-03>.container>h1 {
+      color: #FFFFDD;
+    }
+
+    .section-03>.container>p {
+      color: #D2DE32;
+    }
+
+    .section-04 {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      background: rgb(167, 167, 167);
+      position: relative;
+    }
+
+    .section-04.content_box {
+      flex-grow: 1;
+    }
+
+    .section-04>.content_box>h1 {
+      color: #fff;
+    }
+
+    .section-04>.content_box>p {
+      color: rgb(255, 166, 166);
+    }
+
+    .section-05 {
+      background: #000;
+    }
+
+    .section-05>.container {
+      color: #fff;
+    }
+
+    section.animate {
+      opacity: 0;
+      transition: 1s;
+    }
+
+    section.show.animate {
+      opacity: 1;
+    }
+
+    .section-01>.container>.animate {
+      transform: translateY(100px);
+    }
+
+    .section-01>.container>.show.animate {
+      transform: translateY(0);
+    }
+
+    .section-02>.container>.animate {
+      transform: translateX(100%);
+    }
+
+    .section-02>.container>.show.animate {
+      transform: translateX(0);
+    }
+
+    .section-03>animate {
+      transform: scale(.7);
+    }
+
+    .section-03>.container>.show.animate {
+      transform: scale(1);
+    }
+
+    .section-04>.container>.animate {
+      transform: translateX(-150%);
+    }
+
+    .section-04>.container>.show.animate {
+      transform: translateX(0);
+    }
+
+    .section-05>.container>.animate {
+      transform: rotate(-90deg);
+    }
+
+    .section-05>.container>.show.animate {
+      transform: rotate(0)
+    }
+
+    .section-04 {
+      position: relative;
+    }
+
+    .section-04.content_box {
+      flex-grow: 1;
+    }
+
+    .section-04.container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin: 50px 0;
+      flex-grow: 9;
+    }
+
+    .img_container {
+      display: flex;
+      min-width: 100vw;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .img_container img {
+      width: 350px;
+      height: 250px;
+      transition: 1s;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="section-01">
+    <div class="container">
+      <h1 class="animate">Hi, I'm Minam</h1>
+      <p class="animate">Animation on Scroll using HTML and Javascript</p>
+    </div>
+
+  </section>
+
+  <section class="section-02">
+    <div class="container">
+      <h1 class="animate">This is Second page</h1>
+      <p class="animate">Animation on Scroll using HTML and Javascript</p>
+    </div>
+
+  </section>
+
+  <section class="section-03">
+    <div class="container">
+      <h1 class="animate">This is Third page</h1>
+      <p class="animate">Animation on Scroll using HTML and Javascript</p>
+    </div>
+
+  </section>
+
+  <section class="section-04">
+    <div class="content_box">
+      <h1>Photo effect</h1>
+      <p>Animation on Scroll using HTML and Javascript</p>
+    </div>
+    <div class="container">
+      <div class="img_container">
+        <img src="./img/img01.jpg" alt="img01" class="animate">
+        <img src="./img/img02.jpg" alt="img02" class="animate">
+        <img src="./img/img03.jpg" alt="img03" class="animate">
+      </div>
+    </div>
+  </section>
+
+  <section class="section-05">
+    <div class="container">
+      <h1 class="animate">This is the last page</h1>
+      <p class="animate">Animation on Scroll using HTML and Javascript</p>
+    </div>
+  </section>
+  <script>
+    window.addEventListener("load", () => {
+      setTimeout(() => window.scrollTo(0, 0), 100);
+    });
+    const io = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        entry.isIntersecting ? entry.target.classList.add('show') : entry.target.classList.remove('show');
+      })
+    });
+
+    document.querySelectorAll('.animate').forEach(el => {
+      io.observe(el);
+    })
+
+  </script>
+
+</body>
+
+</html>
