@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>01.ParallaxScroll</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      word-wrap: break-word;
+    }
+
+    section:nth-child(even) {
+      background: #f5f5f5;
+      color: rgb(44, 44, 44);
+    }
+
+    section {
+      background: rgb(44, 44, 44);
+      display: flex;
+      min-height: 100vh;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    section>h1 {
+      font-size: 3em;
+    }
+
+    .container {
+      text-align: center;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: 1s;
+    }
+
+    .container.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .container>h2 {
+      font-size: 3.5em;
+    }
+
+    .container>h2::after {
+      content: "";
+      display: block;
+      margin: 10px auto;
+      width: 200px;
+      border-bottom: 3px solid rgb(44, 44, 44);
+    }
+
+    section:nth-of-type(odd)>.container>h2::after {
+      border-bottom: 3px solid #fff;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 50px;
+    }
+
+    .text-card {
+      margin-top: 30px;
+      word-wrap: break-word;
+      width: 250px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      background: #fafdbf;
+      padding: 20px;
+      color: #000;
+      text-align: left;
+    }
+
+    .text-card>h3 {
+      text-transform: uppercase;
+      font-size: 2.5em;
+      text-align: center;
+    }
+
+    .text-card>p {
+      font-size: 1.5em;
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <h1>Interactive Scroll</h1>
+  </section>
+  <section>
+    <div class="container reveal">
+      <h2>Your Title</h2>
+      <div class="cards">
+        <div class="text-card">
+          <h3>Title</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <div class="text-card">
+          <h3>Title</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <div class="text-card">
+          <h3>Title</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container reveal">
+      <h2>Your Title</h2>
+      <div class="cards">
+        <div class="text-card">
+          <h3>Title</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <div class="text-card">
+          <h3>Title</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <div class="text-card">
+          <h3>Title</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container reveal">
+      <h2>Your Title</h2>
+      <div class="cards">
+        <div class="text-card">
+          <h3>Title</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <div class="text-card">
+          <h3>Title</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <div class="text-card">
+          <h3>Title</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    const container = document.querySelectorAll(".container");
+
+    const obser = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        } else {
+          entry.target.classList.remove("active");
+        }
+      });
+    });
+
+    container.forEach((el) => {
+      obser.observe(el);
+    });
+
+  </script>
+</body>
+
+</html>
