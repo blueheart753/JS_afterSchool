@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+header {
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: #fff;
+}
+
+.scroll-content {
+  height: 100vh;
+  display: flex;
+}
+
+.scroll-graphic {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.graphic-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 5%;
+  top: 0;
+  width: 90%;
+  opacity: 0;
+  transition: 1s;
+  will-change: opacity;
+}
+
+.scroll-text {
+  position: relative;
+  padding-bottom: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.step {
+  margin: 0 auto 80vh auto;
+}
+
+.center {
+  width: 400px;
+  padding: 20px;
+  border: 1px solid #000;
+  background: #fff;
+  text-align: center;
+}
+
+.scene-img {
+  height: 90vh;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.scene-img.visible {
+  background-image: url(./img/intro1.png);
+  opacity: 1;
+}
