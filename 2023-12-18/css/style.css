@@ -1,0 +1,62 @@
+@import url(https://db.onlinewebfonts.com/c/29800a9e7d146302b8ed9ad2f848db63?family=Druk+Wide+Web+Bold+Regular);
+
+@font-face {
+  font-family: "Druk Wide Web Bold Regular";
+  src: url("https://db.onlinewebfonts.com/t/29800a9e7d146302b8ed9ad2f848db63.eot");
+  src: url("https://db.onlinewebfonts.com/t/29800a9e7d146302b8ed9ad2f848db63.eot?#iefix") format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/29800a9e7d146302b8ed9ad2f848db63.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/29800a9e7d146302b8ed9ad2f848db63.woff") format("woff"),
+    url("https://db.onlinewebfonts.com/t/29800a9e7d146302b8ed9ad2f848db63.ttf") format("truetype"),
+    url("https://db.onlinewebfonts.com/t/29800a9e7d146302b8ed9ad2f848db63.svg#Druk Wide Web Bold Regular") format("svg");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+body {
+  background: #4801ff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li,
+ul {
+  list-style: none;
+}
+
+.content {
+  height: 100vh;
+}
+
+.content-wrap {
+  height: 100%;
+  padding: 8em 0 0 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.content-wrap > ul {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  padding-right: 50px;
+  transform-style: preserve-3d;
+}
+
+.content-wrap > ul > li {
+  width: 100%;
+  text-align: right;
+  cursor: pointer;
+}
+
+.content-wrap > ul > li > p > a {
+  font-family: "Druk Wide Web Bold Regular";
+  font-size: 6rem;
+}
