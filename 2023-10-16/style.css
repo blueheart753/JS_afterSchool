@@ -14,7 +14,7 @@ body {
 
 body::before {
   background-attachment: scroll;
-  content: "";
+  content: '';
   display: block;
   width: 100vw;
   height: 100%;
@@ -37,7 +37,7 @@ body::before {
   display: block;
   width: 300px;
   height: 200px;
-  background: url("./img/avengers_logo.png");
+  background: url('./img/avengers_logo.png');
   background-size: cover;
   background-position: center;
   margin-bottom: 20px;
@@ -100,7 +100,7 @@ body::before {
   position: relative;
   width: 100%;
   height: 100%;
-  background-image: url("./img/avengers_bg.jpg");
+  background-image: url('./img/avengers_bg.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -131,7 +131,7 @@ body::before {
 }
 
 .card_back::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
