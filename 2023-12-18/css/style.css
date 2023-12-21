@@ -1,12 +1,7 @@
-@import url(https://db.onlinewebfonts.com/c/29800a9e7d146302b8ed9ad2f848db63?family=Druk+Wide+Web+Bold+Regular);
-
 @font-face {
-  font-family: "Druk Wide Web Bold Regular";
-  src: url("https://db.onlinewebfonts.com/t/29800a9e7d146302b8ed9ad2f848db63.eot");
-  src: url("https://db.onlinewebfonts.com/t/29800a9e7d146302b8ed9ad2f848db63.eot?#iefix") format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/29800a9e7d146302b8ed9ad2f848db63.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/29800a9e7d146302b8ed9ad2f848db63.woff") format("woff"),
-    url("https://db.onlinewebfonts.com/t/29800a9e7d146302b8ed9ad2f848db63.ttf") format("truetype"),
-    url("https://db.onlinewebfonts.com/t/29800a9e7d146302b8ed9ad2f848db63.svg#Druk Wide Web Bold Regular") format("svg");
+  font-family: "Druk Wide Web";
+  src: url("/Font/DrukWide-Super-Web.ttf") format("truetype");
+  font-weight: normal;
 }
 
 * {
@@ -19,6 +14,7 @@
 
 body {
   background: #4801ff;
+  position: relative;
 }
 
 a {
@@ -31,6 +27,41 @@ ul {
   list-style: none;
 }
 
+header {
+  position: fixed;
+  top: 300px;
+  left: 50px;
+  width: 40px;
+  height: 400px;
+  padding: 10px 15px;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+}
+
+header ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header::before {
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(154, 114, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  z-index: -1;
+  box-shadow: -10px 0px 20px rgb(141, 103, 230);
+}
+
 .content {
   height: 100vh;
 }
@@ -40,6 +71,8 @@ ul {
   padding: 8em 0 0 0;
   display: flex;
   justify-content: flex-end;
+  perspective: 300px;
+  transform-style: preserve-3d;
 }
 
 .content-wrap > ul {
@@ -48,15 +81,30 @@ ul {
   flex-direction: column;
   padding-right: 50px;
   transform-style: preserve-3d;
+  perspective: 300px;
+  gap: 40px;
 }
 
 .content-wrap > ul > li {
   width: 100%;
   text-align: right;
   cursor: pointer;
+  transform-style: preserve-3d;
+}
+
+.content-wrap > ul > li > p {
+  transform: rotateY(-7deg) translateZ(0) scale(1);
+  transform-origin: right center;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .content-wrap > ul > li > p > a {
-  font-family: "Druk Wide Web Bold Regular";
+  font-family: "Druk Wide Web";
   font-size: 6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 0.9em;
+  font-weight: 900;
+  text-shadow: rgb(219, 219, 219) 10px 13px;
 }
