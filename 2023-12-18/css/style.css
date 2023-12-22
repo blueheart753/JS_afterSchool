@@ -57,6 +57,10 @@ header {
   justify-content: space-around;
 }
 
+.nav_bar > li {
+  padding: 10px 0;
+}
+
 .nav_bar > li > a > img {
   width: 30px;
 }
@@ -88,7 +92,10 @@ header::before {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  transform: translateX(20px) translateY(-10px);
+  transform: translateX(-70px) translateY(-10px);
+  opacity: 0;
+  z-index: -999;
+  transition: all 0.4s ease;
 }
 
 .menu::after {
@@ -104,8 +111,8 @@ header::before {
   -webkit-backdrop-filter: blur(5px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  z-index: -1;
   box-shadow: -5px 0px 20px rgb(141, 103, 230);
+  z-index: -1;
 }
 
 .menu > ul {
