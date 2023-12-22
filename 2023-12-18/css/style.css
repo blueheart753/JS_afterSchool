@@ -1,7 +1,16 @@
 @font-face {
   font-family: 'Druk Wide Web';
-  src: url('/Font/DrukWide-Super-Web.ttf') format('truetype');
+  src: url('/Font/DrukWide-Super-Web.ttf') format('ttf');
   font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'JalnanGothic';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 * {
@@ -15,6 +24,8 @@
 body {
   background: #4801ff;
   position: relative;
+  perspective-origin: 50% var(--perspective-origin-y);
+  will-change: perspective-origin;
 }
 
 a {
@@ -29,7 +40,7 @@ ul {
 
 header {
   position: fixed;
-  top: 300px;
+  top: 30%;
   left: 50px;
   width: 50px;
   height: 400px;
@@ -39,14 +50,14 @@ header {
   justify-content: center;
 }
 
-header ul {
+.nav_bar {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 25px;
+  justify-content: space-around;
 }
 
-header > ul > li > a > img {
+.nav_bar > li > a > img {
   width: 30px;
 }
 
@@ -67,27 +78,78 @@ header::before {
   box-shadow: -10px 0px 20px rgb(141, 103, 230);
 }
 
+.menu {
+  width: 120px;
+  padding: 0 10px;
+  position: absolute;
+  left: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  transform: translateX(20px) translateY(-10px);
+}
+
+.menu::after {
+  width: 100%;
+  height: 100%;
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(154, 114, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  z-index: -1;
+  box-shadow: -5px 0px 20px rgb(141, 103, 230);
+}
+
+.menu > ul {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.menu > ul > li {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  letter-spacing: 2px;
+  font-family: 'JalnanGothic';
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.menu > ul > li:hover {
+  text-shadow: #ffffff91 5px 8px;
+  transform: translateY(-5px);
+}
+
 .content {
   height: 100vh;
 }
 
 .content-wrap {
-  height: 100%;
   padding: 8em 0 0 0;
   display: flex;
   justify-content: flex-end;
-  perspective: 300px;
+  perspective: 900px;
   transform-style: preserve-3d;
+  transform: translate3d(0px, -0.0019px, 0px);
 }
 
 .content-wrap > ul {
-  width: 95%;
-  display: flex;
-  flex-direction: column;
+  width: 90%;
   padding-right: 50px;
   transform-style: preserve-3d;
-  perspective: 300px;
-  gap: 40px;
+  perspective: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .content-wrap > ul > li {
@@ -96,20 +158,27 @@ header::before {
   cursor: pointer;
   transform-style: preserve-3d;
 }
-
 .content-wrap > ul > li > p {
-  transform: rotateY(-7deg) translateZ(0) scale(1);
+  transform: rotateY(-10deg) translateZ(0) scale(1);
   transform-origin: right center;
   transform-style: preserve-3d;
   will-change: transform;
+  text-shadow: rgb(219, 219, 219) 10px 13px;
+  transition: all 0.3s ease;
+}
+
+.content-wrap > ul > li:hover > p {
+  transform: rotateY(-5deg) translateZ(0) scale(1.07);
+  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-width: 1px;
+  text-shadow: none;
 }
 
 .content-wrap > ul > li > p > a {
   font-family: 'Druk Wide Web';
-  font-size: 6rem;
+  font-size: 9.6vw;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   line-height: 0.9em;
   font-weight: 900;
-  text-shadow: rgb(219, 219, 219) 10px 13px;
 }
