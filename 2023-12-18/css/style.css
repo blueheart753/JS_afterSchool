@@ -176,9 +176,9 @@ header::before {
 
 .content-wrap > ul > li:hover > p {
   transform: rotateY(-5deg) translateZ(0) scale(1.07);
-  -webkit-text-stroke-color: black;
-  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke: 1.2rem black;
   text-shadow: none;
+  color: transparent;
 }
 
 .content-wrap > ul > li > p > a {
