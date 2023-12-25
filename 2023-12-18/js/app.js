@@ -26,3 +26,31 @@ navMenu.addEventListener('mouseover', () => {
 navMenu.addEventListener('mouseout', () => {
   navMenu.classList.remove('active');
 });
+
+const content = document.querySelectorAll('.content-wrap > ul > li');
+
+content.forEach((el, idx) => {
+  el.addEventListener('click', e => {
+    e.preventDefault();
+    switch (idx) {
+      case 0:
+        break;
+
+      case 1:
+        location.href = './view/About.html';
+        break;
+
+      case 2:
+        location.href = './view/Skills.html';
+        break;
+
+      case 3:
+        location.href = './view/Portfolio.html';
+        break;
+
+      default:
+        location.href = './view/Portfolio.html';
+        break;
+    }
+  });
+});

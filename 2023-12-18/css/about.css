@@ -21,7 +21,79 @@ ul {
 }
 
 header {
-  height: 50vh;
+  height: 40vh;
   background-color: #f0fdae;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header > h1 {
+  font-size: 9em;
+  letter-spacing: 6px;
+  color: transparent;
+  -webkit-text-stroke: 10px #231233;
   padding: 20px;
+}
+
+header > h2 {
+  width: 0;
+  text-transform: uppercase;
+  font-size: 2.5em;
+  background-color: #bdaefd;
+  border-radius: 0 12px 12px 0;
+  color: #f5f5f5;
+  -webkit-text-stroke: 2px #231233;
+  overflow: hidden;
+  text-align: right;
+  transition: all 1.4s ease;
+}
+
+header > h2.active {
+  width: 1000px;
+  padding: 30px;
+}
+
+header > h2.active:hover {
+  background-color: #2e1892;
+}
+
+.back_wrap {
+  position: absolute;
+  right: 10px;
+  top: 40px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.back {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-delay: 1s;
+  transition: all 0.3s ease;
+  background: url(../img/back_black.png) no-repeat center;
+  border: 0;
+  cursor: pointer;
+}
+
+.back:hover {
+  background: url(../img/back_white.png) no-repeat center;
+}
+
+.back_wrap:hover {
+  background: #232323;
+}
+
+section {
+  height: 100vh;
+}
+
+section:nth-of-type(even) {
+  background-color: #aebafd;
 }

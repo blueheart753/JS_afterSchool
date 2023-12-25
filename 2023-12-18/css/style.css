@@ -141,22 +141,24 @@ header::before {
 }
 
 .content-wrap {
-  padding: 8em 0 0 0;
-  display: flex;
-  justify-content: flex-end;
-  perspective: 900px;
+  position: relative;
+  width: 100%;
+  transform: translateZ(0);
   transform-style: preserve-3d;
-  transform: translate3d(0px, -0.0019px, 0px);
+  perspective: 800px;
 }
 
 .content-wrap > ul {
-  width: 90%;
-  padding-right: 50px;
+  position: relative;
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  text-align: right;
+  width: 95%;
   transform-style: preserve-3d;
-  perspective: 900px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 80px;
 }
 
 .content-wrap > ul > li {
@@ -166,12 +168,12 @@ header::before {
   transform-style: preserve-3d;
 }
 .content-wrap > ul > li > p {
-  transform: rotateY(-10deg) translateZ(0) scale(1);
+  text-shadow: rgb(219, 219, 219) 10px 13px;
+  transition: all 0.3s ease;
+  transform: rotateY(-15deg) translateZ(0) scale(1);
   transform-origin: right center;
   transform-style: preserve-3d;
   will-change: transform;
-  text-shadow: rgb(219, 219, 219) 10px 13px;
-  transition: all 0.3s ease;
 }
 
 .content-wrap > ul > li:hover > p {
