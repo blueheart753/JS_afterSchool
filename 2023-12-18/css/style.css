@@ -1,13 +1,14 @@
 @font-face {
-  font-family: "Druk Wide Web";
-  src: url("/Font/DrukWide-Super-Web.ttf") format("ttf");
+  font-family: 'Druk Wide Web';
+  src: url('/Font/DrukWide-Super-Web.ttf') format('ttf');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "JalnanGothic";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff") format("woff");
+  font-family: 'JalnanGothic';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff')
+    format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -67,7 +68,7 @@ header {
 header::before {
   width: 100%;
   height: 100%;
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 0;
@@ -100,7 +101,7 @@ header::before {
 .menu::after {
   width: 100%;
   height: 100%;
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 0;
@@ -125,7 +126,7 @@ header::before {
   text-align: center;
   padding: 10px 0;
   letter-spacing: 2px;
-  font-family: "JalnanGothic";
+  font-family: 'JalnanGothic';
   color: #fff;
   transition: all 0.3s ease;
 }
@@ -182,7 +183,7 @@ header::before {
 }
 
 .content-wrap > ul > li > p > a {
-  font-family: "Druk Wide Web";
+  font-family: 'Druk Wide Web';
   font-size: 9.6vw;
   text-transform: uppercase;
   letter-spacing: 0.02em;
@@ -193,7 +194,14 @@ header::before {
 .home {
   height: 100vh;
   position: relative;
-  background-image: linear-gradient(to right bottom, #f0fdae, #ffefc2, #ffeeea, #fff7ff, #ffffff);
+  background-image: linear-gradient(
+    to right bottom,
+    #f0fdae,
+    #ffefc2,
+    #ffeeea,
+    #fff7ff,
+    #ffffff
+  );
   display: flex;
   justify-content: center;
   gap: 190px;
@@ -221,11 +229,6 @@ header::before {
   opacity: 0;
 }
 
-.home > .showInterduce > h2.active {
-  transform: translateY(0);
-  opacity: 1;
-}
-
 .home > .showInterduce > p {
   width: 400px;
   text-align: center;
@@ -236,16 +239,11 @@ header::before {
   font-size: 1.3rem;
 }
 
-.home > .showInterduce > p.startDoc {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .home > .photo_wrap {
   height: 100%;
   display: flex;
   align-items: center;
-  transform: translateX(250px);
+  transform: translateX(350px);
   transition: all 0.7s ease;
   transition-delay: 1s;
   opacity: 0;
@@ -264,39 +262,42 @@ header::before {
 .home > .photo_wrap > .photo_line > .km_photo {
   height: 100%;
   width: 100%;
-  background-image: url("../img/IMG_1487-removebg-preview_waifu2x_art_scan_noise1_scale.png");
+  background-image: url('../img/IMG_1487-removebg-preview_waifu2x_art_scan_noise1_scale.png');
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: 600px;
-}
-
-.home > .photo_wrap.startDoc {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 section {
   height: 100vh;
 }
 
-.my_information > h1 {
-  font-size: 4rem;
-  text-align: center;
-  padding: 20px;
-}
-
-.my_information > .school {
-  width: 500px;
-  height: 100%;
+.about {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  position: relative;
-  top: 100px;
+  align-items: center;
 }
 
-.my_information > .school > article {
-  height: 200px;
+.about > h1 {
+  font-size: 4rem;
+  text-align: center;
+  padding: 30px;
+  color: #f5f5f5;
+  -webkit-text-stroke: 3px #000;
+}
+
+.about > .school {
+  height: 300px;
+  display: flex;
+  gap: 30px;
+  position: relative;
+  top: 200px;
+  cursor: pointer;
+}
+
+.about > .school > article {
+  width: 300px;
+  height: 500px;
   padding: 20px;
   background-color: #f0fdae;
   margin-left: 20px;
@@ -304,6 +305,34 @@ section {
   text-align: center;
 }
 
-.school_name {
+.content_title {
   padding: 5px 0 20px 0;
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+.skills {
+  background: #232323;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skills_header {
+  width: 100%;
+  height: 300px;
+  background-image: url(../img/waves.svg);
+}
+
+.skills_wrap {
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.skills_item {
+  width: 200px;
+  height: 200px;
+  border: 2px solid #fff;
 }
